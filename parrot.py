@@ -30,7 +30,7 @@ def getMessage():
 @bot.event
 async def on_ready():
     print("bot olnine")
-    channel = bot.get_channel(1161098199260471306)
+    channel = bot.get_channel(1161098199260471306) #testing channel
     await channel.send(random.choice(noises))
 
 @bot.event
@@ -49,7 +49,7 @@ async def on_message(msg):
 
 @bot.command()
 async def send(ctx):
-    if ctx.message.author.id == 804463117232242748:
+    if ctx.message.author.id == 804463117232242748: #decided to make this command owner only
         await ctx.send(getMessage())
 
 @bot.command()
