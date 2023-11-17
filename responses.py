@@ -28,7 +28,7 @@ def getResponse(t):
     return random.choice(t)
 
 def findLiked(i):
-    with open(r"C:\Users\keshi\Documents\thing\Python\parrot\loved.txt", "r") as file:
+    with open(r"C:\Users\keshi\Documents\thing\Python\parrot\loved.txt", "r") as file: #insert loved list file path
         content = file.read()
 
         if str(i) in content:
@@ -37,7 +37,7 @@ def findLiked(i):
             return False
 
 def findHated(i):
-    with open(r"C:\Users\keshi\Documents\thing\Python\parrot\hated.txt", "r") as file:
+    with open(r"C:\Users\keshi\Documents\thing\Python\parrot\hated.txt", "r") as file: #insert hated list file path
         content = file.read()
 
         if str(i) in content:
@@ -52,10 +52,10 @@ def handlePing(ctx):
     msg = ctx.content
     i = ctx.author.id
 
-    #if findLiked(i) and not findHated(i):
-    #    return getResponse(positive)
-    #elif findHated(i) and not findLiked(i):
-    #    return getResponse(negative)
+    if findLiked(i) and not findHated(i):
+        return getResponse(positive)
+    elif findHated(i) and not findLiked(i):
+        return getResponse(negative)
 
     if msg == "<@1161070845934960900>":
         return getResponse(greetings)
